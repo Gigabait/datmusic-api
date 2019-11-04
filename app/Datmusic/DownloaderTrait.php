@@ -6,13 +6,13 @@
 
 namespace App\Datmusic;
 
-use Log;
-use getID3;
 use Aws\S3\S3Client;
+use getID3;
 use getid3_writetags;
-use Illuminate\Support\Str;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
+use Log;
 
 trait DownloaderTrait
 {
@@ -116,7 +116,7 @@ trait DownloaderTrait
             $bitrate = -1;
         }
 
-        list($fileName, $localPath, $path) = $this->buildFilePathsForId($id);
+        [$fileName, $localPath, $path] = $this->buildFilePathsForId($id);
 
         // check bucket for file and redirect if exists
         if ($this->isS3 && @file_exists($this->formatPathWithBitrate($path, $bitrate))) {
@@ -200,7 +200,7 @@ trait DownloaderTrait
         $convertResult = $this->bitrateConvert($bitrate, $path, $localPath, $fileName);
 
         if ($convertResult != false) {
-            list($fileName, $path) = $convertResult;
+            [$fileName, $path] = $convertResult;
             logger()->convert($name, $bitrate);
             $name = str_replace('.mp3', " ($bitrate).mp3", $name);
         }

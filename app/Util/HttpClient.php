@@ -7,9 +7,9 @@
 namespace App\Util;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Uri;
-use GuzzleHttp\Middleware;
 use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
+use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\RequestInterface;
 
 class HttpClient

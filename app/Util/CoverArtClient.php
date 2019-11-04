@@ -7,11 +7,11 @@
 namespace App\Util;
 
 use Carbon\Carbon;
+use Concat\Http\Middleware\RateLimiter;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\HandlerStack;
 use Illuminate\Support\Facades\Cache;
-use Concat\Http\Middleware\RateLimiter;
-use GuzzleHttp\Exception\ClientException;
 
 class CoverArtClient
 {

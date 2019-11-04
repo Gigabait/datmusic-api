@@ -6,8 +6,8 @@
 
 namespace App\Datmusic;
 
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 trait SearchesTrait
 {
